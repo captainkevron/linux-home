@@ -7,6 +7,11 @@ install_tools() {
 
 }
 
+setup_git() {
+    git config --global user.email "krchard@gmail.com"
+    git config --global user.name "Kevin Chard"
+}
+
 setup_vim() {
     mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim 
     pushd ~/.vim/bundle
