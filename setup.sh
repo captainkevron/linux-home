@@ -30,6 +30,11 @@ link_dot_files() {
     ln -sf $REPOS/linux-home/.tmux.conf $HOME/.tmux.conf
 }
 
+link_dot_bin() {
+    ln -sf $REPOS/.bin $HOME/.bin
+}
+
 install_tools
 setup_vim
 link_dot_files
+link_dot_bin
