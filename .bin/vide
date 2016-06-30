@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -o nounset
+
+session_name=${1:-'default'}
+working_dir=$PWD
+
+cd $working_dir
+
+tmux has-session -t $session_name &> /dev/null
+
+if [ $? != 0 ]
+  then
+    tmux start-server
+    tmux new-session -d -s $session_name -n main
+
+    tmux send-keys "vi" C-m
+    tmux split-window -p 33 -h
+    tmux select-window -t $session_name:1
+    tmux select-pane -t 1
+fi
+
+tmux attach -t $session_name
