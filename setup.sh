@@ -13,8 +13,8 @@ setup_git() {
 }
 
 setup_vim() {
-    mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim 
-    pushd ~/.vim/bundle
+    mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle && curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+    pushd $HOME/.vim/bundle
     if [ ! -d nerdtree ]; then
         git clone git@github.com:scrooloose/nerdtree.git
     fi
@@ -25,9 +25,9 @@ setup_vim() {
 }
 
 link_dot_files() {
-    ln -sf ~/repos/linux-home/.bash_aliases ~/.bash_aliases
-    ln -sf ~/repos/linux-home/.vimrc ~/.vimrc
-    ln -sf ~/repos/linux-home/.tmux.conf ~/.tmux.conf
+    ln -sf $REPOS/linux-home/.bash_aliases $HOME/.bash_aliases
+    ln -sf $REPOS/linux-home/.vimrc $HOME/.vimrc
+    ln -sf $REPOS/linux-home/.tmux.conf $HOME/.tmux.conf
 }
 
 install_tools
