@@ -28,6 +28,8 @@ inoremap jk <Esc>
 let mapleader = "\<Space>"
 nnoremap <leader>nt :NERDTreeToggle<CR>
 
+" autocmds
+autocmd BufWritePre *.py,*.js,*.java,*.go,*.rb,*.elm,*.html,*.css,*.md,*.txt :%s/\s\+$//e
 
 " Install plugins
 execute pathogen#infect()
