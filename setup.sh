@@ -2,6 +2,8 @@
 set -o errexit
 set -o nounset
 
+REPOS=$HOME/repos
+
 install_tools() {
     sudo apt-get update && sudo apt-get install -y git tmux vim
 
@@ -24,17 +26,24 @@ setup_vim() {
     popd
 }
 
+setup_repos() {
+    mkdir -p $REPOS
+}
+
 link_dot_files() {
     ln -sf $REPOS/linux-home/.bash_aliases $HOME/.bash_aliases
     ln -sf $REPOS/linux-home/.vimrc $HOME/.vimrc
     ln -sf $REPOS/linux-home/.tmux.conf $HOME/.tmux.conf
 }
 
-link_dot_bin() {
-    ln -sf $REPOS/.bin $HOME/.bin
+cp_bin() {
+    # .profile automatically adds ~/bin if it is a real directory, can't just symlink
+    rm $HOME/bin/*
+    cp -TRv $REPOS/linux-home/bin $HOME/bin
 }
 
 install_tools
 setup_vim
+setup_repos
 link_dot_files
-link_dot_bin
+cp_bin
