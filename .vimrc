@@ -31,5 +31,8 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 " autocmds
 autocmd BufWritePre *.py,*.js,*.java,*.go,*.rb,*.elm,*.html,*.css,*.md,*.txt :%s/\s\+$//e
 
+" language specific settings
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+
 " Install plugins
 execute pathogen#infect()
