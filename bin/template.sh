@@ -3,6 +3,8 @@
 set -o nounset
 set -o errexit
 
+my_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # set default for flags
 someflag=false
 
